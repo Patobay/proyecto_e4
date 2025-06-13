@@ -1,0 +1,21 @@
+# STM32CubeMX Project
+ProjectManager.ProjectName=BluePill_LightMatrix
+ProjectManager.ToolChain=STM32CubeIDE
+ProjectManager.UartMode=Asynchronous
+Mcu.Family=STM32F1
+Mcu.Name=STM32F103C8Tx
+RCC.HSE_VALUE=8000000
+RCC.PLLMUL=RCC_PLL_MUL9
+RCC.PLLSource=RCC_PLLSOURCE_HSE
+RCC.SysFreq=72000000
+PA0.Signal=GPIO_Analog
+PA1.Signal=GPIO_Analog
+PA2.Signal=GPIO_Analog
+PA3.Signal=GPIO_Analog
+PA9.Signal=USART1_TX
+PA10.Signal=USART1_RX
+USART1.VirtualMode=VM_ASYNC
+USART1.BaudRate=115200
+ADC1.ContinuousConvMode=DISABLE
+ADC1.NbrOfConversion=1
+ADC1.Resolution=ADC_RESOLUTION_12B
