@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stm32f1xx.h"
 
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart1;
