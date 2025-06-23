@@ -30,7 +30,7 @@ void controlar_leds() {
         GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
         HAL_GPIO_Init(puertos[i], &GPIO_InitStruct);
 
-        HAL_Delay(5);
+        HAL_Delay(10);
         lectura[i] = leer_luz(canales[i]);
 
         GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -41,7 +41,7 @@ void controlar_leds() {
     }
 
     for (int i = 0; i < 4; i++) {
-        if (lectura[i] > 1000) {
+        if (lectura[i] > 100) {
             for (int j = 0; j < 4; j++) {
                 if (j != i)
                     HAL_GPIO_WritePin(puertos[j], pines[j], GPIO_PIN_SET);
@@ -72,6 +72,7 @@ int main(void)
 
 static void MX_ADC1_Init(void)
 {
+    __HAL_RCC_ADC1_CLK_ENABLE();
     hadc1.Instance = ADC1;
     hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
     hadc1.Init.ContinuousConvMode = DISABLE;
@@ -129,4 +130,9 @@ void SystemClock_Config(void)
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
     HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
+}
+
+void SysTick_Handler(void)
+{
+    ++uwTick;
 }
